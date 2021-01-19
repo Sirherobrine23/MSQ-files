@@ -1,0 +1,260 @@
+{
+  "fonte": [
+    {
+      "MANCER THUNDER 500W BRONZE 80 PLUS": {
+        "watts": "500W",
+        "modelo": "MCR-THR500-BL01",
+        "modular": false
+      }
+    },
+    {
+      "SUPER FLOWER 1000W LEADEX SE PLATINUM 80 PLUS": {
+        "watts": "1000",
+        "modelo": "SF-1000F14MP",
+        "modular": true
+      }
+    },
+    {
+      "AZZA 550W 80 PLUS BRONZE PFC ATIVO": {
+        "watts": "550",
+        "modelo": "PSAZ-550W",
+        "modular": false
+      }
+    },
+    {
+      "NZXT C650 FULL MODULAR 80 PLUS GOLD": {
+        "watts": "650",
+        "modelo": "NP-C650M-US",
+        "modular": true
+      }
+    }
+  ],
+  "gabinete": [
+      {
+        "aigo darkflash dlx22 neo": {
+          "color": "black",
+          "modelo": "CP-CASE-DLX22-NEO-BK"
+        }
+      },
+      {
+        "aerocool ATX SI-5100": {
+          "color": "",
+          "modelo": "EN58348"
+        }
+      },
+      {
+        "T-DAGGER CUBE BRANCO LATERAL VIDRO": {
+          "color": "white",
+          "modelo": "T-TGC305W"
+        }
+      }
+  ],
+  "mother_board": [
+    {
+      "GIGABYTE B460M DS3H AC DDR4": {
+        "color": "black",
+        "socket": "lga1200",
+        "modelo": "B460M"
+      }
+    },
+    {
+      "ASUS ROG STRIX H470-I GAMING DDR4": {
+        "color": "black",
+        "socker": "lga1200",
+        "modelo": "ROG STRIX H470-I GAMING"
+      }
+    },
+    {
+      "ASUS PRIME H470M-PLUS DDR4": {
+        "color": "black",
+        "socker": "lga1200",
+        "modelo": "PRIME H470M-PLUS"
+      }
+    },
+    {
+        "ASUS PRIME B460M-A DDR4": {
+          "color": "black",
+          "socker": "lga1200",
+          "modelo": "PRIME B460M-A"
+        }
+    },
+    {
+      "ASUS TUF GAMING B460-PRO WI-FI DDR4": {
+        "color": "black",
+        "socker": "lga1200",
+        "modelo": "TUF GAMING B460-PRO (WI-FI)"
+      }
+    }
+  ],
+  "CPU": [
+    {
+      "INTEL CORE I3-10100 QUAD-CORE": {
+        "clock": "3.6GHZ",
+        "cache": "6mb",
+        "socket": "lga1200",
+        "modelo": "BX8070110100"
+      }
+    },
+    {
+      "INTEL CORE I3-10100F QUAD-CORE": {
+        "clock": "3.6GHZ",
+        "cache": "6mb",
+        "socket": "lga1200",
+        "modelo": "BX8070110100F"
+      }
+    }
+  ],
+  "cooler": [
+    {
+      "gabinete": [
+        {
+          "SCYTHE KAZEFLEX 120 1200RPM": {
+            "modelo": "SU1225FD12L-RD"
+          }
+        },
+        {
+          "CORSAIR ML140 140MM": {
+            "modelo": "CO-9050044-WW"
+          }
+        },
+        {
+          "CORSAIR ML140 PRO 140MM": {
+            "modelo": "CO-9050045-WW"
+          }
+        }
+      ]
+    },
+    {
+      "CPU": [
+        {
+          "COOLER MASTER HYPER T200": {
+            "modelo": "RR-T200-22PK-R1",
+            "socket": {
+              "Intel": ["LGA1200", "LGA1156", "LGA1155", "LGA1151", "LGA1150", "LGA1366", "LGA775"],
+              "AMD": ["AM4", "AM3+", "AM3", "AM2", "FM2+", "FM2", "FM1"]
+            }
+          }
+        },
+        {
+          "THERMALTAKE CONTAC SILENT FAN 120MM BRANCA": {
+            "modelo": "CL-P039-AL12BL-A",
+            "socket": {
+              "Intel": ["1366", "1156", "1155", "1151", "1150", "775"],
+              "AMD": [null]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "CORSAIR HYDRO SERIES H45 120MM": {
+        "modelo":"CW-9060028-WW",
+        "socket": {
+          "Intel": ["1150", "1151", "1155", "1156", "1366", "2011", "2011-3"],
+          "AMD": ["FM1", "FM2", "AM2", "AM3", "AM4"]
+        }
+      }
+    }
+  ],
+  "graphics": [
+    {
+      "Asus Radeon RX 5500 XT EVO": {
+        "modelo": "DUAL-RX5500XT-O4G-EVO",
+        "ram": "4GB GDDR6",
+        "gpu": "AMD RX 5500"
+      }
+    },
+    {
+      "Galax GeForce GTX 1650 EX PLUS": {
+        "modelo": "65SQL8DS93E1",
+        "ram": "4GB GDDR6",
+        "gpu": "Nvidia GTX 1650"
+      }
+    },
+    {
+      "INNO3D Geforce RTX 3070 TWIN X2 OC": {
+        "modelo": "N30702-08D6X-1710VA32L",
+        "marca": "INNO3D",
+        "ram": "8GB GDDR6",
+        "gpu": "Nvidia RTX 3070"
+      }
+    },
+    {
+      "AFOX RADEON RX 550": {
+        "modelo": "AFRX550-2048D5H4",
+        "ram": "2GB GDDR5",
+        "gpu": "AMD Radeon RX 550"
+      }
+    }
+  ],
+  "ram": [
+    {
+      "CORSAIR VENGEANCE LPX 8GB": {
+        "ram": "8GB",
+        "clock": "2666MHZ (2.6Ghz)",
+        "gen": "DDR4"
+      }
+    },
+    {
+      "CORSAIR VENGEANCE LPX 16GB": {
+        "ram": "16GB",
+        "clock": "3000MHZ (3Ghz)",
+        "gen": "DDR4"
+      }
+    },
+    {
+      "CORSAIR VENGEANCE LPX 8GB": {
+        "ram": "8GB",
+        "clock": "2666MHZ (2.6Ghz)",
+        "gen": "DDR4",
+        "modelo": "CMK8GX4M1A2666C16R"
+      }
+    }
+  ],
+  "hd": [
+    {
+      "TOSHIBA P300 1TB 3.5 SATA III 6GB/S": {
+        "modelo": "HDWD110UZSVA",
+        "size": "512GB"
+      }
+    },
+    {
+      "WD RED NAS 2TB 3.5 SATA III 6GB/S,": {
+        "modelo": "WD20EFAX",
+        "size": "2TB"
+      }
+    },
+    {
+      "WD BLUE 1TB 3.5 SATA III 6GB/S": {
+        "modelo": "WD10EZEX",
+        "size": "1TB"
+      }
+    },
+    {
+      "SEAGATE BARRACUDA 1TB 3.5 SATA III 6GB/S": {
+        "modelo": "ST1000DM010",
+        "size": "1TB"
+      }
+    }
+  ],
+  "ssd": [
+    {
+      "ADATA XPG SX6000 LITE 128GB M.2 2280 NVME": {
+        "modelo": "ASX6000LNP-128GT-C",
+        "size": "128GB"
+      }
+    },
+    {
+      "ADATA XPG SX6000 LITE 1TB M.2 2280 NVME":{
+        "modelo": "ASX6000LNP-1TT-C",
+        "size": "1TB"
+      }
+    },
+    {
+      "ADATA XPG SX6000 LITE 512GB M.2 2280 NVME": {
+        "modelo": "ASX6000LNP-512GT-C",
+        "size": "512GB"
+      }
+    }
+  ]
+}
