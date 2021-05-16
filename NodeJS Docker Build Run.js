@@ -70,30 +70,35 @@ if (DockerConfig.dockertype === "buildx") {
     dockertype = DockerConfig.dockertype
     if (DockerConfig.platforms.length !== undefined) buildXOptions = `--platform ${DockerConfig.platforms.join(",")}`;
 }
-const build_command = `docker ${dockertype} build ${resolve(__dirname)} -f ${DockerConfig.dockerfile} -t ${DockerConfig.docker_image}`.trim().split(/\s+/).join(" ");
-console.log(build_command);
-const build = exec(build_command);
 
-build.stdout.pipe(stdoutBuild)
-build.stderr.pipe(stderrBuild)
+function Docker(){
+    const build_command = `docker ${dockertype} build ${resolve(__dirname)} -f ${DockerConfig.dockerfile} -t ${DockerConfig.docker_image}`.trim().split(/\s+/).join(" ");
+    console.log(build_command);
+    const build = exec(build_command);
 
-build.stdout.on("data", (data) => {if (data.slice(-1) === "\n") data = data.slice(0, -1);console.log(data);})
-build.stderr.on("data", (data) => {if (data.slice(-1) === "\n") data = data.slice(0, -1);console.log(data);})
-build.on("exit", function(code){
-    if (code === 0){
-        console.log("Running the image");
-        const commadRun = `docker run --rm ${optionsExport} ${name} ${mountExport} ${portsExport} ${envExport} ${DockerConfig.docker_image}`.trim().split(/\s+/).join(" ");
-        console.log(commadRun);
-        const run = exec(commadRun, {
-            detached: true,
-            shell: true
-        });
+    build.stdout.pipe(stdoutBuild)
+    build.stderr.pipe(stderrBuild)
 
-        run.stdout.pipe(stdoutRun)
-        run.stderr.pipe(stderrRun)
+    build.stdout.on("data", (data) => {if (data.slice(-1) === "\n") data = data.slice(0, -1);console.log(data);})
+    build.stderr.on("data", (data) => {if (data.slice(-1) === "\n") data = data.slice(0, -1);console.log(data);})
+    build.on("exit", function(code){
+        if (code === 0){
+            console.log("Running the image");
+            const commadRun = `docker run --rm ${optionsExport} ${name} ${mountExport} ${portsExport} ${envExport} ${DockerConfig.docker_image}`.trim().split(/\s+/).join(" ");
+            console.log(commadRun);
+            const run = exec(commadRun, {
+                detached: true,
+                shell: true
+            });
 
-        run.on("exit", code => process.exit(code))
-        run.stdout.on("data", (data) => {if (data.slice(-1) === "\n") data = data.slice(0, -1);console.log(data);})
-        run.stderr.on("data", (data) => {if (data.slice(-1) === "\n") data = data.slice(0, -1);console.log(data);})
-    } else exit(code)
-})
+            run.stdout.pipe(stdoutRun)
+            run.stderr.pipe(stderrRun)
+
+            run.on("exit", code => process.exit(code))
+            run.stdout.on("data", (data) => {if (data.slice(-1) === "\n") data = data.slice(0, -1);console.log(data);})
+            run.stderr.on("data", (data) => {if (data.slice(-1) === "\n") data = data.slice(0, -1);console.log(data);})
+        } else exit(code)
+    })
+}
+
+module.exports = Docker;
