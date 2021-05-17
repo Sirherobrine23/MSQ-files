@@ -71,7 +71,7 @@ if (DockerConfig.dockertype === "buildx") {
     if (DockerConfig.platforms.length !== undefined) buildXOptions = `--platform ${DockerConfig.platforms.join(",")}`;
 }
 
-function Docker(){
+function Docker(endcallback){
     const build_command = `docker ${dockertype} build ${resolve(__dirname)} -f ${DockerConfig.dockerfile} -t ${DockerConfig.docker_image}`.trim().split(/\s+/).join(" ");
     console.log(build_command);
     const build = exec(build_command);
@@ -94,7 +94,8 @@ function Docker(){
             run.stdout.pipe(stdoutRun)
             run.stderr.pipe(stderrRun)
 
-            run.on("exit", code => process.exit(code))
+            if (typeof endcallback === "function") run.on("exit", code => endcallback(code));
+            else run.on("exit", code => process.exit(code))
             run.stdout.on("data", (data) => {if (data.slice(-1) === "\n") data = data.slice(0, -1);console.log(data);})
             run.stderr.on("data", (data) => {if (data.slice(-1) === "\n") data = data.slice(0, -1);console.log(data);})
         } else exit(code)
