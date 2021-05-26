@@ -20,6 +20,9 @@ for (let envs of DockerConfig.env) envExport += `-e ${envs.name}="${envs.value}"
 var optionsExport="";
 for (let options of DockerConfig.options) optionsExport += `${options} `
 
+var dockerTarget = "";
+if (DockerConfig.target) dockerTarget = `--target ${DockerConfig.target}`
+
 console.log("Checking and stopping");
 var CheckDocker = execSync("docker ps -a").toString()
 CheckDocker = CheckDocker.split(/\r?\n/g)
@@ -72,7 +75,7 @@ if (DockerConfig.dockertype === "buildx") {
 }
 
 function Docker(endcallback){
-    const build_command = `docker ${dockertype} build ${resolve(__dirname)} -f ${DockerConfig.dockerfile} -t ${DockerConfig.docker_image}`.trim().split(/\s+/).join(" ");
+    const build_command = `docker ${dockertype} build ${resolve(__dirname)} ${dockerTarget} -f ${DockerConfig.dockerfile} -t ${DockerConfig.docker_image}`.trim().split(/\s+/).join(" ");
     console.log(build_command);
     const build = exec(build_command);
 
