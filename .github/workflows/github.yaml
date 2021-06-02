@@ -45,11 +45,17 @@ jobs:
         with:
           node-version: 16.x
           registry-url: https://registry.npmjs.org/
+      - name: Set up NASM
+        uses: ilammy/setup-nasm@v1.2.0
       # Bin
       - name: Install depedencies
-        run: npm install
+        run: |
+          cd DockerBuild
+          npm install
       - name: Build bin
-        run: npm run bin
+        run: |
+          cd DockerBuild
+          npm run bin
 
       - name: Releases
         uses: softprops/action-gh-release@v1
@@ -72,9 +78,13 @@ jobs:
           node-version: 16.x
           registry-url: https://registry.npmjs.org/
       - name: Install depedencies
-        run: npm install
+        run: |
+          cd DockerBuild
+          npm install
       - name: Build bin
-        run: npm run bin
+        run: |
+          cd DockerBuild
+          npm run bin
 
       - name: Releases
         uses: softprops/action-gh-release@v1
