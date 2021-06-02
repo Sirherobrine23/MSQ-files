@@ -25,12 +25,6 @@ jobs:
           cd DockerBuild/Build
           arch="${{ matrix.arch }}" node build.js
 
-      - name: copy files
-        run: |
-          IMSHA="$(docker manifest inspect -v dockerruns | jq -r '.[0].Descriptor.digest')"
-          echo "docker run -v $(pwd)/:/home/OUT/ dockerruns@${IMSHA}"
-          echo "docker run -v $(pwd)/:/home/OUT/ dockerruns@${IMSHA}" | bash -
-
       - name: Releases
         uses: softprops/action-gh-release@v1
         env:
@@ -39,7 +33,6 @@ jobs:
           name: ${{ github.run_id }}
           tag_name: ${{ github.run_id }}
           files: DockerRunBuild_*
-          prerelease: true
           body: Linux, architecture ${{ matrix.arch }}
 
   win32:
@@ -52,7 +45,10 @@ jobs:
         with:
           node-version: 16.x
           registry-url: https://registry.npmjs.org/
-      - name: copy files
+      # Bin
+      - name: Install depedencies
+        run: npm install
+      - name: Build bin
         run: npm run bin
 
       - name: Releases
@@ -63,7 +59,6 @@ jobs:
           name: ${{ github.run_id }}
           tag_name: ${{ github.run_id }}
           files: DockerRunBuild_*
-          prerelease: true
           body: Windows X64
 
   MacOS:
@@ -76,7 +71,9 @@ jobs:
         with:
           node-version: 16.x
           registry-url: https://registry.npmjs.org/
-      - name: copy files
+      - name: Install depedencies
+        run: npm install
+      - name: Build bin
         run: npm run bin
 
       - name: Releases
@@ -87,5 +84,4 @@ jobs:
           name: ${{ github.run_id }}
           tag_name: ${{ github.run_id }}
           files: DockerRunBuild_*
-          prerelease: true
           body: MacOS X64
