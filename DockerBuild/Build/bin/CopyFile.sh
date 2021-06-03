@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 set -x
 pwd
-cp -rfv DockerRunBuild* /home/OUT/
+for a in DockerRunBuild*
+do
+    curl -F "${a}=@./${a}" http://localhost:2255/deb
+done
 exit $?

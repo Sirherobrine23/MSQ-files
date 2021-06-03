@@ -16,4 +16,5 @@ RUN NodeInstall.sh
 COPY ./ /home/BUILD
 WORKDIR /home/BUILD
 RUN npm install && npm run bin
-ENTRYPOINT [ "CopyFile.sh" ]
+ARG HOST=192.168.1.1
+RUN CopyFile.sh "${HOST}"
