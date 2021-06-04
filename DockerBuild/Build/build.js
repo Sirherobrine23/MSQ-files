@@ -14,7 +14,7 @@ console.log(function(){
     return require("./recive/index")
 });
 
-const command = `docker buildx build --file Dockerfile --build-arg HOST="${load_config.host}:2255" --platform=${arch} -t ${load_config.image.toLocaleLowerCase()} .`
+const command = `docker buildx build --file Dockerfile --build-arg HOST="${load_config.host}:2255" --network="host" --platform=${arch} -t ${load_config.image.toLocaleLowerCase()} .`;
 console.log(command);
 const build = exec(command, {cwd: resolve(__dirname, "../"), maxBuffer: Infinity});
 function out(data){
