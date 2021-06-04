@@ -63,7 +63,7 @@ jobs:
         with:
           name: ${{ github.run_id }}
           tag_name: ${{ github.run_id }}
-          files: "DockerRunBuild*"
+          files: "DockerBuild/DockerRunBuild*"
           body: Windows X64
 
   MacOS:
@@ -92,5 +92,5 @@ jobs:
         with:
           name: ${{ github.run_id }}
           tag_name: ${{ github.run_id }}
-          files: "DockerRunBuild*"
+          files: "DockerBuild/DockerRunBuild*"
           body: MacOS X64
