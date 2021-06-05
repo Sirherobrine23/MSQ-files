@@ -2,17 +2,16 @@
 const { exec, execSync } = require("child_process");
 const { resolve } = require("path");
 const { exit } = require("process");
-const { arch } = process.env
+const arch = (process.env.arch || "linux/amd64")
 
 // Setting Docker Build
 const load_config = {
     image: "dockerruns",
     host: execSync(`ifconfig $(ip route|awk '/default/ {print $5}') | grep 'inet '| awk '{print $2}'`).toString().split("\n").join("")
 }
-console.log(function(){
-    execSync("npm install", {cwd: resolve(__dirname, "recive")})
-    return require("./recive/index")
-});
+const Ex = exec("npm install && node index.js", {cwd: resolve(__dirname, "recive")});
+Ex.stdout.on("data", data => console.log(data))
+Ex.stderr.on("data", data => console.log(data))
 
 const command = `docker buildx build --file Dockerfile --build-arg HOST="${load_config.host}:2255" --network="host" --platform=${arch} -t ${load_config.image.toLocaleLowerCase()} .`;
 console.log(command);
