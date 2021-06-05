@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const express = require('express');
 const { writeFileSync } = require("fs");
-const { join, resolve } = require("path");
+const { resolve } = require("path");
 const app = express();
 const port = 2255;
 const fileUpload = require("express-fileupload");
@@ -9,7 +9,7 @@ const fileUpload = require("express-fileupload");
 // Express Settings
 app.use(fileUpload({
     limits: { fileSize: 50 * 1024 * 1024 * 1024 },
-    "limitHandler": Infinity,
+    limitHandler: Infinity,
 }));
 
 // URi
