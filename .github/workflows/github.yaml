@@ -42,7 +42,7 @@ jobs:
       - name: Npm and Node Setup
         uses: actions/setup-node@v2.1.5
         with:
-          node-version: 16.x
+          node-version: 15.x
           registry-url: https://registry.npmjs.org/
       - name: Set up NASM
         uses: ilammy/setup-nasm@v1.2.0
@@ -74,7 +74,7 @@ jobs:
       - name: Npm and Node Setup
         uses: actions/setup-node@v2.1.5
         with:
-          node-version: 16.x
+          node-version: 15.x
           registry-url: https://registry.npmjs.org/
       - name: Install depedencies
         run: |
